@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,12 +22,19 @@ public class deleteuser extends HttpServlet {
 public Connection connection;
 
 	
-public void init() {
+public void init(ServletConfig config) {
 	// To Create connection
 	try {
+		ServletContext context = config.getServletContext();
+		String dburl = context.getInitParameter("dburl");
+		String dbuser = context.getInitParameter("dbuser");
+		String dbpassword = context.getInitParameter("dbpassword");
+		
 		Class.forName("com.mysql.jdbc.Driver");
-		connection = DriverManager.getConnection("jdbc:mysql://localhost/mydb", "root", "@MobVishnu1596");		
-		} catch (SQLException | ClassNotFoundException e) {
+		connection = DriverManager.getConnection(dburl, dbuser, dbpassword);
+//		connection = DriverManager.getConnection("jdbc:mysql://localhost/mydb", "root", "@MobVishnu1596");		
+
+	} catch (SQLException | ClassNotFoundException e) {
 		e.printStackTrace();
 	}
 }

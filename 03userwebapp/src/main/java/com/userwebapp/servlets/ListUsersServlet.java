@@ -9,12 +9,14 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+@WebServlet("/listusers")
 public class ListUsersServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     public Connection connection;
@@ -23,11 +25,15 @@ public class ListUsersServlet extends HttpServlet {
 	public void init(ServletConfig config) {
 		// To Create connection
 		try {
+			ServletContext context = config.getServletContext();
+			String dburl = context.getInitParameter("dburl");
+			String dbuser = context.getInitParameter("dbuser");
+			String dbpassword = context.getInitParameter("dbpassword");
+			
 			Class.forName("com.mysql.jdbc.Driver");
-			String dburl = config.getInitParameter("dbrul");
-			String dbuser = config.getInitParameter("dbuser");
-			String dbpassword = config.getInitParameter("dbpassword");
 			connection = DriverManager.getConnection(dburl, dbuser, dbpassword);
+//			connection = DriverManager.getConnection("jdbc:mysql://localhost/mydb", "root", "@MobVishnu1596");		
+
 		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
@@ -55,11 +61,11 @@ public class ListUsersServlet extends HttpServlet {
 				out.println("<td>"+firstname+  "</th>");
 				out.println("<td>"+lastname+"</th>");
 				out.println("<td>"+emailID+"</td>");
-				out.println("<tr>");
+				out.println("<tr>"); 
 //				out.print(firstname);
 //				out.print(lastname);
 //				out.print(emailID);
-			}
+			} 
 			out.println("</table>");
 			out.println("<a href=\"INDEX.html\">HOME</a>");
 		} catch (SQLException e) {
