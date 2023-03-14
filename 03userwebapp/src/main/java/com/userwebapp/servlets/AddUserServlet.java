@@ -23,8 +23,8 @@ public class AddUserServlet extends HttpServlet {
 		// To Create connection
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			connection = DriverManager.getConnection("jdbc:mysql://localhost/mydb", "root", "@MobVishnu1596");
-		} catch (SQLException | ClassNotFoundException e) {
+			connection = DriverManager.getConnection("jdbc:mysql://localhost/mydb", "root", "@MobVishnu1596");		
+			} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 	}
