@@ -1,4 +1,4 @@
-package com.loginServlet;
+package com.demos.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -16,9 +17,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 
-@WebServlet("/addproduct")
+@WebServlet("/loginservlet")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     private Connection connection;
@@ -48,10 +50,10 @@ public class LoginServlet extends HttpServlet {
 		String password = request.getParameter("password");
 	
 		
-		response.setContentType("tex/html");
+		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		
-		if(!isValidInput(username,true) || !isValidInput(password,false)) {
+		if(!isValidInput(username,false) || !isValidInput(password,false)) {
 			out.println("<h3>Please Enter valid input...</h3>");
 			return;
 		}
@@ -60,11 +62,24 @@ public class LoginServlet extends HttpServlet {
 		try{
 			preparedstmt.setString(1,username);
 			preparedstmt.setString(2, password);
+			ResultSet resultSet=null;
+			
+			
 			boolean result = preparedstmt.execute();
 			if(result) {
-				out.print("Login is success");
+				resultSet = preparedstmt.getResultSet();
+			if(resultSet.next())
+				//now navigate to home page
+				System.out.print("User Successfully logged in. Navigating to home page");
+				HttpSession session = request.getSession();
+				session.setAttribute("username", username);
+				RequestDispatcher rd = request.getRequestDispatcher("home");
+				rd.forward(request, response);
 			}else {
-				
+				//navigate to login.html
+				out.print("<p>User not found</p>");
+				RequestDispatcher rd = request.getRequestDispatcher("login.html");
+				rd.include(request, response);
 			}
 		}
 		catch(SQLException e) {

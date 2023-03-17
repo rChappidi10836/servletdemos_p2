@@ -45,7 +45,7 @@ public class AddUserServlet extends HttpServlet {
 		String lastName = request.getParameter("lastName");
 		String emailID = request.getParameter("emailID");
 		String password = request.getParameter("password");
-
+		response.setContentType("text/html");
 		try (Statement statement = connection.createStatement();) {
 
 			int result = statement.executeUpdate("Insert into user values('" + firstName + "', '" + lastName + "','"
