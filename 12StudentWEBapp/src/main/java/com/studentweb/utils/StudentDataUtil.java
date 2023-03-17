@@ -15,13 +15,9 @@ public class StudentDataUtil {
 	
 	List<Student> students = new ArrayList<>();
 	
-	private DataSource datasource;
+//	private DataSource datasource;
 	
 	
-	public StudentDataUtil(DataSource datasource) {
-		this.datasource = datasource;
-	}
-
 	Connection con = null;
 	Statement stmt = null;
 	ResultSet rs   = null;
@@ -32,7 +28,7 @@ public class StudentDataUtil {
 	
 	public List<Student> getStudents(){
 		try {
-			con = this.datasource.getConnection();
+//			con = this.datasource.getConnection();
 			stmt = con.createStatement();
 			ResultSet resultSet = stmt.executeQuery("select * from student order by id");
 			while (resultSet.next()) {
