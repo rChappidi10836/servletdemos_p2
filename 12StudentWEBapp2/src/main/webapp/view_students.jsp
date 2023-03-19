@@ -21,7 +21,7 @@
 		</tr>
 		<c:forEach var="student" items="${student_list}">
 			<tr>
-				<td><a href="loadstudent?studentId=${student.id}">${student.id}</a></td>
+				<td><a href="Updatestudent?studentId=${student.id}">${student.id}</a></td>
 				<td>${student.firstName}</td>
 				<td>${student.lastName}</td>
 				<td>${student.email}</td>
