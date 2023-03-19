@@ -41,7 +41,7 @@ public class loadstudent extends HttpServlet {
 		
 		request.setAttribute("STUDENT", studentDataUtil.getStudent(studentId));
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/updatestudents.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/updatestudent.jsp");
 		dispatcher.forward(request, response);
 		
 		

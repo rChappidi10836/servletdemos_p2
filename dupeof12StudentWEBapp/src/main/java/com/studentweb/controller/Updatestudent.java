@@ -43,7 +43,7 @@ public class Updatestudent extends HttpServlet {
 		
 		request.setAttribute("student_list", studentDataUtil.getStudents());
 		
-		RequestDispatcher dispatch = request.getRequestDispatcher("/view_student.jsp");
+		RequestDispatcher dispatch = request.getRequestDispatcher("/view_students.jsp");
 		dispatch.forward(request, response);
 		
 	}
