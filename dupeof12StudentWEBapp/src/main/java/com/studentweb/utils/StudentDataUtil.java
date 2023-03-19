@@ -115,17 +115,20 @@ public class StudentDataUtil {
 		}
 	}
 
-	public Object getStudents(String studentId) {
+	public Object getStudent(String studentId) {
 		Student student= null;
 		Connection con = null;
-		Statement stmt = null;
+		PreparedStatement stmt = null;
 		
 		
 		try {
 			//get connection from connection pool
 			con = this.datasource.getConnection();
-			stmt = con.createStatement();
-			ResultSet resultSet = stmt.executeQuery("select * from student where id=?");
+			String sql = "select * from student where id=?";
+			stmt = con.prepareStatement(sql);
+			stmt.setInt(1,Integer.parseInt(studentId));
+			ResultSet resultSet = stmt.executeQuery();
+			
 			while (resultSet.next()) {
 				int id = resultSet.getInt("id");
 				String fname = resultSet.getString("first_name");

@@ -37,8 +37,14 @@ public class Updatestudent extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		String studentId = request.getParameter("studentId");
+		String email = request.getParameter("email");
 		
+		studentDataUtil.UpdateStudent(studentId, email);	
 		
+		request.setAttribute("student_list", studentDataUtil.getStudents());
+		
+		RequestDispatcher dispatch = request.getRequestDispatcher("/view_student.jsp");
+		dispatch.forward(request, response);
 		
 	}
 

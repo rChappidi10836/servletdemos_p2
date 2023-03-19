@@ -15,7 +15,7 @@ import javax.sql.DataSource;
 import com.studentweb.utils.StudentDataUtil;
 
 
-@WebServlet("/Updatestudent")
+@WebServlet("/loadstudent")
 public class loadstudent extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
@@ -39,7 +39,7 @@ public class loadstudent extends HttpServlet {
 
 		String studentId = request.getParameter("studentId");
 		
-		request.setAttribute("STUDENT", studentDataUtil.getStudents(studentId));
+		request.setAttribute("STUDENT", studentDataUtil.getStudent(studentId));
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/updatestudents.jsp");
 		dispatcher.forward(request, response);
