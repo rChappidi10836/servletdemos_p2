@@ -16,8 +16,8 @@ import com.studentweb.model.Student;
 import com.studentweb.utils.StudentDataUtil;
 
 
-@WebServlet("/loadstudent")
-public class loadstudent extends HttpServlet {
+@WebServlet("/Addstudent")
+public class AddStudent extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	@Resource(name="jdbc/studentweb")
@@ -26,10 +26,9 @@ public class loadstudent extends HttpServlet {
 	private StudentDataUtil studentDataUtil;
 	
 	public void init(ServletConfig config) throws ServletException {
-		// To Create connection
 		try {
-			
 			studentDataUtil = new StudentDataUtil(datasource);
+			
 			
 		} catch (Exception e) {
 			throw new ServletException(e);
@@ -38,14 +37,17 @@ public class loadstudent extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		String studentId = request.getParameter("studentId");
-		int id =Integer.parseInt(studentId);
-//		Student student =studentDataUtil.getStudent(id);
-		request.setAttribute("STUDENT", studentDataUtil.getStudent(id));
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/update_student.jsp");
+		String firstName = request.getParameter("firstName");
+		String lastName = request.getParameter("lastName");
+		String email = request.getParameter("emailID");
+
+		studentDataUtil.addStudent(firstName,lastName,email);
+		
+		request.setAttribute("student_list", studentDataUtil.getStudents());
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/view_students.jsp");
 		dispatcher.forward(request, response);
-		
 		
 	}
 

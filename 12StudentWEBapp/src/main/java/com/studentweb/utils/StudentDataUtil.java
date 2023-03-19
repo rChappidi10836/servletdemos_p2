@@ -137,4 +137,30 @@ public class StudentDataUtil {
 		}
 	}
 
+	public void addStudent(String firstName, String lastName, String email) {
+
+		Connection con = null;
+		PreparedStatement stmt = null;
+//		System.out.println(studentId);
+		try {
+			// get connection from connection pool
+			con = this.datasource.getConnection();
+			String sql = "insert into student (first_name, last_name,email)values(?,?,?);\r\n"
+					+ "";
+			stmt = con.prepareStatement(sql);
+			stmt.setString(1, firstName);
+			stmt.setString(2, lastName);
+			stmt.setString(3, email);
+			
+			stmt.execute();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(con, stmt);
+		}
+		
+		
+	}
+
 }

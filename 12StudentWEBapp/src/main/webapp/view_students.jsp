@@ -16,7 +16,7 @@
 			<th>Id</th>
 			<th>First Name</th>
 			<th>Last Name</th>
-			<th>Email</th>
+			<th>Email</th>  
 			<th>Delete</th>
 		</tr>
 		<c:forEach var="student" items="${student_list}">
@@ -29,6 +29,17 @@
 				
 			</tr>
 		</c:forEach>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td><a href="add_student.jsp">ADD NEW STUDENT</a></td>
+			<td></td>
+			<td></td>
+			
+		</tr>
 	</table>
 	
 	
