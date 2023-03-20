@@ -42,7 +42,7 @@
 		</tr>
 	</table>
 	
-	
+	<a href="index.html"> Back to index </a>
 	
 </body>
 </html>

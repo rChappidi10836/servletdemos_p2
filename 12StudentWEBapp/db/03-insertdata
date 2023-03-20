@@ -1,6 +1,0 @@
-use studentweb;
-
-insert into student (first_name, last_name,email)values('John','Doe','jod@gmail.com');
-insert into student (first_name, last_name,email)values('Max','josley','jmax@gmail.com');
-insert into student (first_name, last_name,email)values('nayna','cummins','cnayana@gmail.com');
-insert into student (first_name, last_name,email)values('brook','sord','sbrook@gmail.com');
