@@ -145,8 +145,7 @@ public class StudentDataUtil {
 		try {
 			// get connection from connection pool
 			con = this.datasource.getConnection();
-			String sql = "insert into student (first_name, last_name,email)values(?,?,?);\r\n"
-					+ "";
+			String sql = "insert into student (first_name, last_name,email)values(?,?,?)";
 			stmt = con.prepareStatement(sql);
 			stmt.setString(1, firstName);
 			stmt.setString(2, lastName);

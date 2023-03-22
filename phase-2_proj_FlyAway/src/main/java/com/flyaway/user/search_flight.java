@@ -1,7 +1,6 @@
 package com.flyaway.user;
 
 import java.io.IOException;
-import java.sql.Date;
 
 import javax.annotation.Resource;
 import javax.servlet.RequestDispatcher;
@@ -36,11 +35,12 @@ public class search_flight extends HttpServlet {
 		
 //		long date = Long.parseLong(request.getParameter("date"));
 //		System.out.println("date ="+date);
-		String date = request.getParameter("date");
+		String date = request.getParameter("d");
+//		System.out.println(request.getParameter("d"));
 		String source = request.getParameter("source");
 		String destination = request.getParameter("destination");
 		int nop=Integer.parseInt(request.getParameter("numpeople"));;
-		
+//		System.out.println(date +" "+source +" "+destination +" "+nop);
 		request.setAttribute("avail_flights", flightdatautil.search(date,source,destination,nop));
 		
 		RequestDispatcher rd= request.getRequestDispatcher("/avail_flights.jsp");
