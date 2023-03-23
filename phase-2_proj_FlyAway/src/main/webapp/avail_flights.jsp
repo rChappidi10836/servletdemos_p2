@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Available Flights</title>
 </head>
 <body>
 	<div style='position: relative;left: 30%;bottom: -200px;' >

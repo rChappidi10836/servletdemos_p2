@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Find Flights</title>
 </head>
 <body>
 	<!-- date of travel, source, destination, and the number of persons -->

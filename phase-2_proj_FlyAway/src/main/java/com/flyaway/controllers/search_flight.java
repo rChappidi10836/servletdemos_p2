@@ -1,4 +1,4 @@
-package com.flyaway.user;
+package com.flyaway.controllers;
 
 import java.io.IOException;
 import java.io.PrintWriter;
