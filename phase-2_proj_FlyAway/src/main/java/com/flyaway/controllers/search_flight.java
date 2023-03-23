@@ -59,7 +59,7 @@ public class search_flight extends HttpServlet {
 //			out.("<a href="Index.html">Try another dates or locations</a>");
 		}else {
 		request.setAttribute("avail_flights",fds);
-		
+		request.setAttribute("nop", nop);
 		RequestDispatcher rd= request.getRequestDispatcher("/avail_flights.jsp");
 		rd.forward(request, response);
 		}

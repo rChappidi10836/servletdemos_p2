@@ -23,25 +23,29 @@
 		<form id="Form2">
 			<h3> Selected Flight Details </h3>
 				<input type="text" placeholder="Date" 
-				name="Date" value="" required>
+				name="Date" value="${flight_details.dates}" required>
+				<input type="text" placeholder="Company" 
+				name="Date" value="${flight_details.company}" required>
 				<input type="text" placeholder="Source to Destination" 
-				name="S2D" value="" required>
-				<input type="text" placeholder="price per seat" 
-				name="" value="" required>
+				name="S2D" value="${flight_details.source} - ${flight_details.destination}" required>
+				
 				<div class="btn-box">
 					<button type="button" id="Back1">Back</button>
 					<button type="button" id="Next2">Next</button>
 				</div>
+				<!--  <input type="hidden" value="${flight_details.id}" >-->
 		</form>
 		
 		<form id="Form3">
 			<h3> Payment GateWay</h3>
+				<input type="text" placeholder="price per seat" 
+				name="seat_price" value="Price per Seat:${flight_details.price}" required>
 				<input type="text" placeholder="Total Price" 
-				name="password" value="" required>
+				name="total_price" value="Total Price:${nop*flight_details.price}" required>
 				<input type="text" placeholder="UPI_ID" name="UID" required>
 				<div class="btn-box">
 					<button type="button" id="Back2">Back</button>
-					<button type="submit" >PAY</button>
+					<a href="Index"><button type="submit">PAY</button></a>
 				</div>
 		</form>
 		

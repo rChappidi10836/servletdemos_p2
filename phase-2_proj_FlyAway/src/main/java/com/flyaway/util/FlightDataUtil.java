@@ -64,7 +64,43 @@ public class FlightDataUtil {
 	}
 	
 	
-	
+public Flights_details getFlightDetails(int ID) {
+		
+		List<Flights_details> fds = new ArrayList<>();
+		Flights_details fd = null;
+		Connection con = null;
+		PreparedStatement stmt = null;
+		try {
+			// get connection from connection pool
+			con = this.datasource.getConnection();
+			String sql = "select * from flights where id= ? ";
+			stmt = con.prepareStatement(sql);
+			stmt.setInt(1, ID);
+			ResultSet rs=stmt.executeQuery();
+//			System.out.println(rs.wasNull());
+			while(rs.next()) {
+				
+				int id=rs.getInt("id");
+				String comp=rs.getString("company");
+				String dt = rs.getString("dates");
+				String sou = rs.getString("source");
+				String dest = rs.getString("destination");
+				int seats=rs.getInt("seats");
+				int price=rs.getInt("price");
+//				System.out.println(id +" "+comp +" "+dt +" "+sou +" "+dest +" "+seats +" "+price );
+				fd=new Flights_details(id,comp,dt,sou,dest,seats,price);
+				fds.add(fd);
+			}
+			
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(con,stmt);
+		}
+		return fd; 
+		
+	}
 	
 	private void close(Connection con, Statement stmt) {
 

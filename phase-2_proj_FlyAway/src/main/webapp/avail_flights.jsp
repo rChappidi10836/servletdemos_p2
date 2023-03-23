@@ -10,7 +10,7 @@
 </head>
 <body>
 	<div style='position: relative;left: 30%;bottom: -200px;' >
-	<table border=1>
+	<table border=1 style="text-align : center">
 		<tr>
 			<th>Id</th>
 			<th>Company</th>
@@ -31,7 +31,7 @@
 			<td>${d.destination}</td>
 			<td>${d.seats}</td>
 			<td>${d.price}</td>
-			<td><a href="registration?${d.id}"><button type=radio name="req_flight">select</button></a></td>
+			<td><a href="registration?Id=${d.id}&nop=${nop}"><button name="req_flight">select</button></a></td>
 		</tr>
 		</c:forEach>
 		<tr>

@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,12 +49,16 @@
 					</datalist></td>
 			</tr>
 			<tr>
+				
 				<td>Number of Persons:</td>
 				<td><input type="text" name="numpeople" /></td>
+				<!--<c:set var="nop" scope="session" value="${input_details.numpeople}"></c:set>
+				<c:out value="${nop}"/>-->
 			</tr>
 			<tr>
 				<td></td>
 				<td><input type="submit" name="search" /></td>
+				
 			</tr>
 		</table>
 	</form>
