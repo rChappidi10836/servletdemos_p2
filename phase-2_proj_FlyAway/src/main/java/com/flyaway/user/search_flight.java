@@ -1,6 +1,9 @@
 package com.flyaway.user;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.RequestDispatcher;
@@ -12,6 +15,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
+import org.hibernate.mapping.Index;
+
+import com.flyaway.model.Flights_details;
 import com.flyaway.util.FlightDataUtil;
 
 @WebServlet("/search_flight")
@@ -32,7 +38,9 @@ public class search_flight extends HttpServlet {
 	
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		List<Flights_details> fds = new ArrayList<>();
 		
+		PrintWriter out=response.getWriter();
 //		long date = Long.parseLong(request.getParameter("date"));
 //		System.out.println("date ="+date);
 		String date = request.getParameter("d");
@@ -41,10 +49,20 @@ public class search_flight extends HttpServlet {
 		String destination = request.getParameter("destination");
 		int nop=Integer.parseInt(request.getParameter("numpeople"));;
 //		System.out.println(date +" "+source +" "+destination +" "+nop);
-		request.setAttribute("avail_flights", flightdatautil.search(date,source,destination,nop));
+		
+		fds= flightdatautil.search(date,source,destination,nop);
+		if(fds.isEmpty()) {
+//			System.out.println("is empty");
+			response.setContentType("text/html");
+			out.println("<div style='position: relative; left: 30%; top: 45%;' ><h1 >No Flights Available for Entered Data</h1> <br><a href='Index.html' style='position: relative; left: 10%; bottom:15'>Try another dates or locations</a></div>");
+//			out.print(";");
+//			out.("<a href="Index.html">Try another dates or locations</a>");
+		}else {
+		request.setAttribute("avail_flights",fds);
 		
 		RequestDispatcher rd= request.getRequestDispatcher("/avail_flights.jsp");
 		rd.forward(request, response);
+		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
