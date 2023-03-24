@@ -47,7 +47,8 @@ public class search_flight extends HttpServlet {
 //		System.out.println(request.getParameter("d"));
 		String source = request.getParameter("source");
 		String destination = request.getParameter("destination");
-		int nop=Integer.parseInt(request.getParameter("numpeople"));;
+		String numpeople=request.getParameter("numpeople");
+		int nop=Integer.parseInt(numpeople);
 //		System.out.println(date +" "+source +" "+destination +" "+nop);
 		
 		fds= flightdatautil.search(date,source,destination,nop);

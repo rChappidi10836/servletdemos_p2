@@ -16,7 +16,7 @@ import javax.sql.DataSource;
 import com.flyaway.util.FlightDataUtil;
 
 
-@WebServlet("/registration")
+@WebServlet("/registrationservlet")
 public class Registration extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
@@ -34,9 +34,10 @@ public class Registration extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-//		System.out.println( Integer.parseInt(request.getParameter("Id")));
-		int ID= Integer.parseInt(request.getParameter("Id"));
-		int nop=Integer.parseInt(request.getParameter("nop"));
+		String idnum = request.getParameter("Idnum");
+		int ID= Integer.parseInt(idnum);
+		int nop=Integer.parseInt(request.getParameter("np"));
+		
 		request.setAttribute("nop", nop);
 		request.setAttribute("flight_details", flightdatautil.getFlightDetails(ID));
 		

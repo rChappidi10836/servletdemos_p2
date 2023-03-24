@@ -11,23 +11,20 @@
 	<div class="container">
 		<form id="Form1">
 			<h3> PERSONAL INFO</h3>
-				<input type="text" placeholder="Name" name="name" required>
-				<input type="text" placeholder="Phonenumber" 
-				name="phonenumber" required>
+				 <input type="text" placeholder="Name" name="name" required>
+				<!-- <input type="text" placeholder="Name" name="name" required="required"type="text" value="" placeholder="" data-rule-required="true" data-msg-required="Please enter Your Name">-->
+				<input type="text" placeholder="Phonenumber" name="phonenumber" required>
 				
 				<div class="btn-box">
-					<button type="button" id="Next1">Next</button>
+					<button type="submit" id="Next1">Next</button>
 				</div>
 		</form>
 		
 		<form id="Form2">
 			<h3> Selected Flight Details </h3>
-				<input type="text" placeholder="Date" 
-				name="Date" value="${flight_details.dates}" required>
-				<input type="text" placeholder="Company" 
-				name="Date" value="${flight_details.company}" required>
-				<input type="text" placeholder="Source to Destination" 
-				name="S2D" value="${flight_details.source} - ${flight_details.destination}" required>
+				${flight_details.dates}<br>
+				${flight_details.company}<br>
+				${flight_details.source} - ${flight_details.destination}<br>
 				
 				<div class="btn-box">
 					<button type="button" id="Back1">Back</button>
@@ -36,16 +33,14 @@
 				<!--  <input type="hidden" value="${flight_details.id}" >-->
 		</form>
 		
-		<form id="Form3">
+		<form id="Form3" action="complete_registration" method="post">
 			<h3> Payment GateWay</h3>
-				<input type="text" placeholder="price per seat" 
-				name="seat_price" value="Price per Seat:${flight_details.price}" required>
-				<input type="text" placeholder="Total Price" 
-				name="total_price" value="Total Price:${nop*flight_details.price}" required>
+				Price per Seat : ${flight_details.price}<br><br>
+				Total Price    : ${nop * flight_details.price}<br><br>
 				<input type="text" placeholder="UPI_ID" name="UID" required>
 				<div class="btn-box">
 					<button type="button" id="Back2">Back</button>
-					<a href="Index"><button type="submit">PAY</button></a>
+					<button type="submit">PAY</button>
 				</div>
 		</form>
 		

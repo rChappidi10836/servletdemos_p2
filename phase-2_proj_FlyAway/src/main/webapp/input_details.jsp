@@ -11,7 +11,7 @@
 </head>
 <body>
 	<!-- date of travel, source, destination, and the number of persons -->
-	<form action="search_flight" method="" style="margin-top: 200px;">
+	<form action="search_flight" method="post" style="margin-top: 200px;">
 		<table align="center">
 			<tr>
 				<th>

@@ -31,7 +31,7 @@
 			<td>${d.destination}</td>
 			<td>${d.seats}</td>
 			<td>${d.price}</td>
-			<td><a href="registration?Id=${d.id}&nop=${nop}"><button name="req_flight">select</button></a></td>
+			<td><a href="registrationservlet?Idnum=${d.id}&np=${nop}"><button name="req_flight">select</button></a></td><!--  &np=${nop}-->
 		</tr>
 		</c:forEach>
 		<tr>

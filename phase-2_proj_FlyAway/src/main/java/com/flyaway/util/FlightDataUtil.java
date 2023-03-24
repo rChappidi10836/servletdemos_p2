@@ -66,7 +66,6 @@ public class FlightDataUtil {
 	
 public Flights_details getFlightDetails(int ID) {
 		
-		List<Flights_details> fds = new ArrayList<>();
 		Flights_details fd = null;
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -89,7 +88,7 @@ public Flights_details getFlightDetails(int ID) {
 				int price=rs.getInt("price");
 //				System.out.println(id +" "+comp +" "+dt +" "+sou +" "+dest +" "+seats +" "+price );
 				fd=new Flights_details(id,comp,dt,sou,dest,seats,price);
-				fds.add(fd);
+				
 			}
 			
 
