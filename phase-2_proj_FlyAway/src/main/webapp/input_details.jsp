@@ -33,7 +33,6 @@
 						<option value="Hyderabad">
 						<option value="Pune">
 						<option value="Delhi">
-						<option value="Kolkata">
 						<option value="Mumbai">
 					</datalist></td>
 			</tr>
@@ -44,7 +43,6 @@
 						<option value="Hyderabad">
 						<option value="Pune">
 						<option value="Delhi">
-						<option value="Kolkata">
 						<option value="Mumbai">
 					</datalist></td>
 			</tr>

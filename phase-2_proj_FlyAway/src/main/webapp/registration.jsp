@@ -8,101 +8,62 @@
 </head>
 <body>
 	
-	<div class="container">
-		<form id="Form1">
-			<h3> PERSONAL INFO</h3>
-				 <input type="text" placeholder="Name" name="name" required>
-				<!-- <input type="text" placeholder="Name" name="name" required="required"type="text" value="" placeholder="" data-rule-required="true" data-msg-required="Please enter Your Name">-->
-				<input type="text" placeholder="Phonenumber" name="phonenumber" required>
-				
-				<div class="btn-box">
-					<button type="submit" id="Next1">Next</button>
-				</div>
-		</form>
-		
-		<form id="Form2">
-			<h3> Selected Flight Details </h3>
-				${flight_details.dates}<br>
-				${flight_details.company}<br>
-				${flight_details.source} - ${flight_details.destination}<br>
-				
-				<div class="btn-box">
-					<button type="button" id="Back1">Back</button>
-					<button type="button" id="Next2">Next</button>
-				</div>
-				<!--  <input type="hidden" value="${flight_details.id}" >-->
-		</form>
-		
+	
 		<form id="Form3" action="complete_registration" method="post">
+		<input type="hidden" name="id" value="${flight_details.id}">
+		<input type="hidden" name="paid" value="${nop * flight_details.price}">
+			<h3> Selected Flight Details </h3>
+			<div style='position: relative;left: 43%;' >
+			<table border=1>
+				<tr>
+					<td>Date</td>
+					<td>${flight_details.dates}</td>
+				</tr>
+				<tr>
+					<td>Airlines</td>
+					<td>${flight_details.company}</td>
+				</tr>
+				<tr>
+					<td>Source</td>
+					<td>${flight_details.source}</td>
+				</tr>
+				<tr>
+					<td>Destination</td>
+					<td>${flight_details.destination}</td>
+				</tr>
+			</table>
+			</div>
+				
+				<hr>
+				<!--  <input type="hidden" value="${flight_details.id}" >-->
+			
+			<h3>Enter you PERSONAL INFO</h3>
+				 <input type="text" placeholder="Enter you Name here" name="Name" required>
+				<!-- <input type="text" placeholder="Name" name="name" required="required"type="text" value="" placeholder="" data-rule-required="true" data-msg-required="Please enter Your Name">-->
+				<input type="text" placeholder="Enter you Phonenumber here" name="Number" required>
+				
+				<hr style="margin-top: 20px;">
 			<h3> Payment GateWay</h3>
-				Price per Seat : ${flight_details.price}<br><br>
-				Total Price    : ${nop * flight_details.price}<br><br>
-				<input type="text" placeholder="UPI_ID" name="UID" required>
+				<p>Price per Seat : ${flight_details.price}</p>
+				<p>No of persons  : ${nop}</p>
+				<p>Total Price ${nop} x ${flight_details.price} : ${nop * flight_details.price}</p><br>
+				<input style="margin-left:42%"type="text" placeholder="Enter you UPI_ID here" name="UID" required>
 				<div class="btn-box">
 					<button type="button" id="Back2">Back</button>
 					<button type="submit">PAY</button>
 				</div>
 		</form>
-		
-		
-		<div class="step-row">
-		    <div id="progress"></div>
-			<div class="step-col"><small>Step 1</small></div>
-			<div class="step-col"><small>Step 2</small></div>
-			<div class="step-col"><small>Step 3</small></div>
-		</div>
-		
-		
-	</div>
-
-
-	<script>
-		var From1 = document.getElementById("Form1");
-		var From2 = document.getElementById("Form2");
-		var From3 = document.getElementById("Form3");
-		
-		var Next1 = document.getElementById("Next1");
-		var Back1 = document.getElementById("Back1");
-		var Next2 = document.getElementById("Next2");
-		var Back2 = document.getElementById("Back2");
-		
-		var progress = document.getElementById("progress");
-		
-		Next1.onclick = function(){
-			Form1.style.left = "-450px";
-			Form2.style.left = "40px";
-			progress.style.width= "240px";
-		}
-		
-		Back1.onclick = function(){
-			Form1.style.left = "40px";
-			Form2.style.left = "450px";
-			progress.style.width= "120px";
-		}
-		Next2.onclick = function(){
-			Form2.style.left = "-450px";
-			Form3.style.left = "40px";
-			progress.style.width= "360px";
-		}
-		
-		Back2.onclick = function(){
-			Form2.style.left = "40px";
-			Form3.style.left = "450px";
-			progress.style.width= "240px";
-		}
-		
-	</script>
+	
 </body>
 <style>
-	.container{
-		width: 360px;
-		height: 400px;
-		margin: 8% auto;
-		background: #fff;
-		border-radius: 5px;
-		position: relative;
-		overflow: hidden;
+
+	hr{
+	width:90%;
+    
+	margin-top: 30px:
+	
 	}
+	
 	h3{
 	text-align: center;
 	margin-bottom: 40px;
@@ -116,14 +77,19 @@
 	
 	}
 	form input{
-	width: 100%;
+	width: 15%;
 	padding: 10px 5px;
 	margin: 5px 0;
 	border: 0;
 	border-bottom: 1px solid #999;
 	outline: none;
 	background: transparent;
+	margin-left: 25%;
+	text-align:center;
 	/*transition: 0.5s;*/
+	}
+	p{
+	margin-left:30%;
 	}
 	.btn-box{
 		width:100%;
@@ -140,9 +106,10 @@
 		outline: none;
 		colour: #fff;
 		cursor: pointer;
+		left:-450;
 	}
-	#Form2{
-		left: 450px;
+	#Form1{
+		left: -450px;
 		
 	}
 	#Form3{

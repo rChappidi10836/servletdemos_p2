@@ -1,4 +1,4 @@
-package com.flyaway.util;
+package com.flyaway.customer.util;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,7 +10,7 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
-import com.flyaway.model.Flights_details;
+import com.flyaway.customer.model.Flights_details;
 
 public class FlightDataUtil {
 
@@ -112,6 +112,27 @@ public Flights_details getFlightDetails(int ID) {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public void addcustomer(String name, long phno, int id, int paid) {
+		
+		
+		Connection con = null;
+		PreparedStatement stmt = null;
+		
+			try {
+				con = this.datasource.getConnection();
+				String sql = "insert into passengers (name,phno,id,paid) values(?,?,?,?);";
+				stmt = con.prepareStatement(sql);
+				stmt.setString(1, name);
+				stmt.setLong(2, phno);
+				stmt.setInt(3, id);
+				stmt.setInt(4, paid);
+				stmt.execute();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		
 	}
 	
 	

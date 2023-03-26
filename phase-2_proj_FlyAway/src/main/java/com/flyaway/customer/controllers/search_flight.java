@@ -1,4 +1,4 @@
-package com.flyaway.controllers;
+package com.flyaway.customer.controllers;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -17,8 +17,8 @@ import javax.sql.DataSource;
 
 import org.hibernate.mapping.Index;
 
-import com.flyaway.model.Flights_details;
-import com.flyaway.util.FlightDataUtil;
+import com.flyaway.customer.model.Flights_details;
+import com.flyaway.customer.util.FlightDataUtil;
 
 @WebServlet("/search_flight")
 public class search_flight extends HttpServlet {
@@ -55,7 +55,7 @@ public class search_flight extends HttpServlet {
 		if(fds.isEmpty()) {
 //			System.out.println("is empty");
 			response.setContentType("text/html");
-			out.println("<div style='position: relative; left: 30%; top: 45%;' ><h1 >No Flights Available for Entered Data</h1> <br><a href='Index.html' style='position: relative; left: 10%; bottom:15'>Try another dates or locations</a></div>");
+			out.println("<div style='position: relative; left: 30%; top: 45%;' ><h1 >No Flights Available for Entered Data</h1> <br><a href='input_details.jsp' style='position: relative; left: 10%; bottom:15'>Try another dates or locations</a></div>");
 //			out.print(";");
 //			out.("<a href="Index.html">Try another dates or locations</a>");
 		}else {

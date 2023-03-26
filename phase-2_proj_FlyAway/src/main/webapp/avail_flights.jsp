@@ -41,7 +41,7 @@
 	
 	</table>
 	
-	<a href="Index.html" style='position: relative; left: 20%; top:30px'>Back to index</a>
+	<a href="input_details.jsp" style='position: relative; left: 20%; top:30px'>Search for other flights</a>
 	</div>
 </body>
 </html>

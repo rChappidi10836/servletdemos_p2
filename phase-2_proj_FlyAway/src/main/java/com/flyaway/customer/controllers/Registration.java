@@ -1,4 +1,4 @@
-package com.flyaway.controllers;
+package com.flyaway.customer.controllers;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
-import com.flyaway.util.FlightDataUtil;
+import com.flyaway.customer.util.FlightDataUtil;
 
 
 @WebServlet("/registrationservlet")
@@ -41,7 +41,9 @@ public class Registration extends HttpServlet {
 		request.setAttribute("nop", nop);
 		request.setAttribute("flight_details", flightdatautil.getFlightDetails(ID));
 		
-		RequestDispatcher dispatch= request.getRequestDispatcher("/registration.jsp");
+//		RequestDispatcher dispatch= request.getRequestDispatcher("/registration.jsp");
+		RequestDispatcher dispatch= request.getRequestDispatcher("/Details.jsp");
+
 		dispatch.forward(request, response);
 	}
 

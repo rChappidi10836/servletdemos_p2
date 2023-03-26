@@ -1,4 +1,4 @@
-package com.flyaway.model;
+package com.flyaway.customer.model;
 
 public class Flights_details {
 	
