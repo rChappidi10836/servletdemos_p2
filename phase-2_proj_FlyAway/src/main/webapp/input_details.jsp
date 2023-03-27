@@ -24,11 +24,11 @@
 			<tr></tr>
 			<tr>
 				<td>Date of Travel:</td>
-				<td><input type="date" name="d" /></td>
+				<td><input type="date" name="d" required/></td>
 			</tr>
 			<tr>
 				<td>Source:</td>
-				<td><input list="cityname" type="text" name="source" /> 
+				<td><input list="cityname" type="text" name="source" required/> 
 				<datalist id="cityname">
 						<option value="Hyderabad">
 						<option value="Pune">
@@ -38,7 +38,7 @@
 			</tr>
 			<tr>
 				<td>Destination:</td>
-				<td><input list="cityname" type="text" name="destination" /> 
+				<td><input list="cityname" type="text" name="destination" required/> 
 				<datalist id="cityname">
 						<option value="Hyderabad">
 						<option value="Pune">
@@ -49,7 +49,7 @@
 			<tr>
 				
 				<td>Number of Persons:</td>
-				<td><input type="text" name="numpeople" /></td>
+				<td><input type="text" name="numpeople" required/></td>
 				<!--<c:set var="nop" scope="session" value="${input_details.numpeople}"></c:set>
 				<c:out value="${nop}"/>-->
 			</tr>

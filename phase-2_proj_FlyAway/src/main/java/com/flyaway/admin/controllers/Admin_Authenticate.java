@@ -32,30 +32,30 @@ public class Admin_Authenticate extends HttpServlet {
  
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String un=request.getParameter("username");
+		String un=request.getParameter("un");
 		String pwd=request.getParameter("password");
+		
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		
 		boolean test = adminutils.authadmin(un,pwd);
 		if(test) {
-//			out.print("Admin Logged Successfully");
-			
+			out.print(un+" in admin_authen");
+			request.setAttribute("un", un);
+			request.setAttribute("pwd", pwd);
 			RequestDispatcher rs=request.getRequestDispatcher("admin_features.jsp");
 			rs.forward(request, response);
 		}else {
 			out.println("<html>\r\n"
 					+ "<body align=\"center\" style=\"margin-top:20%\">\r\n"
 					+ "<p><font size=\"5\">Admin failed to login. Plz check the login credentials and re-enter properly</font><p>\r\n"
-					+ "<font size=\"5\"><a href='admin_login.html'>Try Again</a></font>\r\n"
+					+ "<font size=\"5\"><a href='admin_login.jsp'>Try Again</a></font>\r\n"
 					+ "</body>\r\n"
 					+ "</html>\r\n"
 					+ "");
 		}
 		
-//		out.println(un);
-//		out.print(pwd);
-		
+
 	}
 
 

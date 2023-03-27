@@ -32,6 +32,20 @@ public class Flights_details {
 		this.seats = seats;
 		this.price = price;
 	}
+	public Flights_details(String source, String destination) {
+		this.source=source;
+		this.destination=destination;
+	}
+	public Flights_details(String company) {
+		this.company=company;
+	}
+	public Flights_details(String source, String destination, String company, int price) {
+		
+		this.source = source;
+		this.destination = destination;
+		this.company = company;
+		this.price = price;
+	}
 	public int getId() {
 		return id;
 	}
