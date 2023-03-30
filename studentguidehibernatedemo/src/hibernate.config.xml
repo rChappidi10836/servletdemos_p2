@@ -14,11 +14,13 @@
  
   <property name="dialect">org.hibernate.dialect.MySQL57Dialect</property>
   
+  <property name="hibernate.format_sql">true</property>
   <property name="hbm2ddl.auto">update</property>
   
   <property name="show_sql">true</property>
- 
-  <mapping class="com.hibernatehelloworld.domain.Person"/>
+  
+  <mapping class="com.hibernatehelloworld.domain.Guide"/>
+  <mapping class="com.hibernatehelloworld.domain.Student"/>
  
  </session-factory>
 

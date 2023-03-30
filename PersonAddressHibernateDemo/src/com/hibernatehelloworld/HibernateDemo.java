@@ -14,9 +14,12 @@ public class HibernateDemo {
 		
 		session.beginTransaction();
 		
-		Address address = new Address("1234 Main street","dholapur","500049");
+		Address address1 = new Address("1234 home street","dholapur","500049");
 		
-		Person person = new Person("John",address);
+		Address address2 = new Address("4321 bill street","dholgapan","500049");
+
+		
+		Person person = new Person("max",address1,address2);
 		
 		session.save(person);
 		
