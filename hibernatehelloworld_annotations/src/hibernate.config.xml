@@ -14,7 +14,9 @@
  
   <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
  
-  <mapping resource="com/hibernatehelloworld/domain/message.hbm.xml"/>
+  <property name="show_sql">true</property>
+ 
+  <mapping class="com.hibernatehelloworld.domain.Message"/>
  
  </session-factory>
 
