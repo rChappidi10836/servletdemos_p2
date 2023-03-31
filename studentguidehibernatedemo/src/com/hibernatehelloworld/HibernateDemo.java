@@ -14,7 +14,7 @@ public class HibernateDemo {
 		
 //		demo2();
 		
-		demo3();
+//		demo3();
 		
 	}
 	

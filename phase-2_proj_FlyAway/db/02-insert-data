@@ -1,0 +1,30 @@
+insert into flights(id,company,dates,source,destination,seats,price)
+values(1,'indiafly',"2023-03-21","Hyderabad","Delhi",20,4500);
+insert into flights (company,dates,source,destination,seats,price) 
+values("getGo","2023-04-02","Mumbai","Pune",5,10000),
+	  ("indiaFly","2023-04-10","Hyderabad","Delhi",150,2000),
+      ("blueOribit","2023-04-03","Mumbai","Kolkata",24,5000),
+      ("getGo","2023-04-01","Hyderabad","Banglore",20,4500),
+      ("aviFast","2023-04-02","Pune","Delhi",100,2500),
+      ("jetSwifts","2023-04-04","Delhi","Hyderabad",35,3000),
+      ("skyExpress","2023-04-03","Kolkata","Pune",125,2000),
+      ("WingzUp","2023-04-0","Pune","Hyderabad",10,9500),
+      ("getGo","2023-04-02","Pune","Kolkata",15,5000),
+	  ("indiaFly","2023-04-10","Mumabai","Pune",169,2000),
+      ("blueOribit","2023-04-03","Delhi","Hyderabad",108,4800),
+      ("getGo","2023-04-01","Banglore","Hyderabad",23,4500),
+      ("aviFast","2023-04-02","Delhi","Pune",100,2800),
+      ("jetSwifts","2023-04-04","Hyderabad","Delhi",35,3000),
+      ("skyExpress","2023-04-03","Pune","Kolkata",10,8200),
+      ("WingzUp","2023-04-0","Hyderabad","Pune",6,9500);
+      
+      
+      
+ insert into admin (username,password) values ("nika","secure");
+         
+      
+      
+      
+      
+      
+ 

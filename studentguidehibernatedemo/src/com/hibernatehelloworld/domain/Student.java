@@ -28,7 +28,7 @@ public class Student {
 	public Student() {}
 
 	public Student(String enrollmentId, String name, Guide guide) {
-		super();
+		
 		this.enrollmentId = enrollmentId;
 		this.name = name;
 		this.guide = guide;

@@ -1,0 +1,22 @@
+create table passengers(
+sno int AUTO_INCREMENT PRIMARY KEY,
+name varchar(150),
+phno int,
+id int,
+ foreign KEY (id) references flights(id));
+ 
+ 
+ 
+ create table flights(
+	id int AUTO_INCREMENT PRIMARY KEY,
+    company varchar(100),
+    dates varchar(20),
+    source varchar(150),
+    destination varchar(150),
+    seats int,
+    price int);
+    
+create table admin(
+	id int auto_increment primary key,
+    username varchar(50),
+    password varchar(50));

@@ -25,12 +25,18 @@ public class readbooks extends HttpServlet {
 		
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		
+		//HQL - Hibernate Query Language
 		List<Book> books = session.createQuery("from Book").list();
+		List<Book> javabooks = session.createQuery("from Book B where B.name = 'java'").list();
 		
+		//Criteria Base queries - join multile tables
 		Criteria cr = session.createCriteria(Book.class);
 		cr.add(Restrictions.eqProperty("name","sapiens"));
 		List<Book> books2 =cr.list();
 		
+		request.setAttribute("books", books2);
+		
+		//RequestDispatcher
 		
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
